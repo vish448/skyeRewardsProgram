@@ -33,12 +33,12 @@ function App() {
       },
     };
 
-    customerData.map(cd => {
-      let month = new Date(cd['date'])
+    for (let i = 0; i < customerData.length; i++) {
+      let month = new Date(customerData[i]['date']);
       if (month.getMonth() + 1 === 10 || month.getMonth() + 1 === 11 || month.getMonth() + 1 === 12) {
-        monthT[month.getMonth() + 1]['amounts'].push(cd['amount']);
+        monthT[month.getMonth() + 1]['amounts'].push(customerData[i]['amount']);
       }
-    })
+    }
 
     for (let key in monthT) {
       let total_month_rewards = 0;
